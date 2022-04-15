@@ -1,7 +1,8 @@
 import Chat from "./pages/Chat";
+import { ListKeys } from "./pages/ListKeys";
 
 export default function App() {
   return (
-    <Chat />
+    <ListKeys />
   );
 }

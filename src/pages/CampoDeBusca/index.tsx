@@ -4,6 +4,7 @@ import { Pessoa } from '../../types/Pessoa'
 import { ComboboxItens } from '../../components/ComboboxItens';
 
 export function CampoDeBusca() {
+  const debounceId = useRef(0)
   const [pessoas, setPessoas] = useState<Pessoa[]>([])
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(false)
@@ -17,7 +18,9 @@ export function CampoDeBusca() {
   };
 
   useEffect(() => {
-    buscaPessoas();
+    clearTimeout(debounceId.current)
+    debounceId.current = window.setTimeout(buscaPessoas, 500)
+    /* buscaPessoas(); */
   }, [query]);
 
   return (
