@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { useChat } from "../../contexts/chat.context";
 
-export const ChatHeader = () => {
+export const ChatHeader = memo(() => {
   const chat = useChat();
   const contato = chat.participantes.find(p => !p.usuarioAtual);
 
@@ -46,4 +47,4 @@ export const ChatHeader = () => {
       </div>
     </div>
   )
-};
+});
